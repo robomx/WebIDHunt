@@ -1,22 +1,43 @@
 # WebIDHunt
 
-> My prime Nuxt.js project
+Client based app to get information about username availability from different important websites. This tool can be used by startups, tech enthusiast, and people who want to block particular username on important domains.
 
-## Build Setup
+## Features
+* No backend required.
+* Add enormous endpoint.
+* PWA app based on Nuxt framework.
+* Easily book your username if they are available.
+* Responsive UI using Bulma framework.
 
-```bash
-# install dependencies
-$ yarn install
+## Support:
+<a href='https://ko-fi.com/Y8Y31LBT4' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi3.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
-# serve with hot reload at localhost:3000
-$ yarn dev
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+## Contribute:
 
-# generate static project
-$ yarn generate
-```
+* Get details about the url endpoint for checking username.
+    * Example: `https://github.com/<username>`
+* Next fork this repository and edit the `static/domains.js`.
+    * To add category.
+        ```
+        domains: {
+            <category>: [
+                ...
+            ]
+        }
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+        ```
+
+    * To add new id in category.
+        ```
+        <category>: [
+            ...
+            {
+                "name": "<id_name>",
+                "endpoint": "<id_endpoint>",
+                "logo": "<id_logo>"
+            }
+            ...
+        ]
+        ```
+    * Send a pull request.
