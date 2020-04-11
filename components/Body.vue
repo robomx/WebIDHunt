@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="searchbar">
-        <input :value="query" type="text" id="fname" name="fname" />
+        <input :value="query" @input="inputChange()" type="text" id="fname" name="fname" />
         <button>Check</button>
       </div>
 
@@ -23,6 +23,7 @@
 
 <script>
 import list from '~/static/list';
+import axios from 'axios';
 
 export default {
     data: () => ({
@@ -32,15 +33,51 @@ export default {
         showShimmer: true
     }),
     created: function() {
-        this.query = this.$router.currentRoute.query['query'] || 'n';
+        this.query = this.$router.currentRoute.query['query'] || '';
 
         this.cards = list.domains
         this.category = Object.keys(list.domains)
 
-        console.log(this.cards)
-
-        
-
+        this.searchUsername();
+    },
+    methods: {
+        inputChange() {
+            this.searchUsername()
+            alert(this.query)
+        },
+        searchUsername() {
+            this.category.forEach(cat => {
+                this.cards[cat].forEach(card => {
+                    card['shimmer'] = true
+                    card['available'] = false
+                    console.log(card['endpoint'])
+                    card['endpoint'] = card['endpoint'].replace('<username>', this.query)
+                    this.checkEndpoint(card, cat)
+                })
+            })
+        },
+        checkEndpoint(card, cat) {
+            axios.get(card['endpoint'],{
+                headers: {
+                    "Access-Control-Allow-Origin": "http://localhost:3000",
+                    "Access-Control-Allow-Headers": "content-type",
+                    "Content-Type": "application/json",
+                }
+            }).then((Response) => {
+                // console.log(Response)
+                if (Response.status == 200) {
+                    this.updateCard(card, cat, false, true)
+                }
+            }, (Err) => {
+                console.log(Err)
+            })
+        },
+        updateCard(card, category, shimmerEffect, available) {
+            card['shimmer'] = shimmerEffect
+            card['available'] = available
+            // update list
+            this.cards[cat][this.cards[cat].indexOf(card)] = card
+        }
     }
 }
 </script>
