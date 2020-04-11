@@ -3,35 +3,35 @@ export default {
         social: [
             {
                 "name": "",
-                "link": "",
-                "icon": ""
+                "endpoint": "",
+                "logo": ""
             },
             {
                 "name": "",
-                "link": "",
-                "icon": ""
+                "endpoint": "",
+                "logo": ""
             },
             {
                 "name": "",
-                "link": "",
-                "icon": ""
+                "endpoint": "",
+                "logo": ""
             },
             {
                 "name": "",
-                "link": "",
-                "icon": ""
+                "endpoint": "",
+                "logo": ""
             }
         ],
         technology: [
             {
                 "name": "Github",
-                "link": "https://github.com/",
-                "icon": ""
+                "endpoint": "https://github.com/",
+                "logo": ""
             },
             {
                 "name": "",
-                "link": "",
-                "icon": ""
+                "endpoint": "",
+                "logo": ""
             }
         ]
     }
