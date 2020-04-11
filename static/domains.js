@@ -33,6 +33,24 @@ export default {
                 "endpoint": "https://www.gitkraken.com/<userName>",
                 "logo": "https://logo.clearbit.com/gitkraken.com"
             }
+        ],
+        communication: [
+          {
+            "name": "Skype",
+            "endpoint": "https://www.skype.com/<userName>",
+            "logo": "https://logo.clearbit.com/skype.com"
+          },
+           {
+            "name": "Slack",
+            "endpoint": "https://slack.com/<userName>",
+            "logo": "https://logo.clearbit.com/slack.com"
+          },
+         
+           {
+            "name": "FlowDock",
+            "endpoint": "https://www.flowdock.com/<userName>",
+            "logo": "https://logo.clearbit.com/flowdock.com"
+          },
         ]
     }
 }
