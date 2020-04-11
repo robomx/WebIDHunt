@@ -30,7 +30,12 @@ export default {
                 "name": "Linkedin",
                 "endpoint": "https://www.linkedin.com/<userName>",
                 "logo": "https://logo.clearbit.com/linkedin.com"
-            }
+            },
+          {
+                "name": "Linkedin",
+                "endpoint": "https://telegram.org/<userName>",
+                "logo": "https://logo.clearbit.com/telegram.org"
+            },
         ],
         technology: [
             {
