@@ -17,7 +17,7 @@ Client based app to get information about username availability from different i
 
 * Get details about the url endpoint for checking username.
     * Example: `https://github.com/<username>`
-* Next fork this repository and edit the `static/domains.js`.
+* Next fork this repository and edit the `static/list.js`.
     * To add category.
         ```
         domains: {
