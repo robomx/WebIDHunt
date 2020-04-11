@@ -24,8 +24,8 @@ export default {
         ],
         technology: [
             {
-                "name": "",
-                "link": "",
+                "name": "Github",
+                "link": "https://github.com/",
                 "icon": ""
             },
             {
