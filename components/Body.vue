@@ -6,17 +6,25 @@
       </div>
 
       <div class="container">
-            <div class="columns is-multiline" v-for="cat of category" v-bind:key="category.indexOf(cat) + 'cat'">
-                <h1 class="title">{{cat.toUpperCase()}}</h1><br/><br/>
-                <div class="column" v-for="card of cards[cat]" v-bind:key="cards[cat].indexOf(card) + cat">
-                    <a :href="card.endpoint.replace('<username>', query)">
-                        <h2 class="subtitle has-text-centered">{{card['name']}}</h2>
-                        <figure class="image is-128x128">
+        <div v-for="cat of category" v-bind:key="category.indexOf(cat) + 'cat'">
+             <h1 class="title has-pad-down">{{cat.toUpperCase()}} <div class="bounce-shimmer bounce-animate" v-if="category.length == 0"></div></h1>
+         <div class="columns is-multiline">
+                 <div class="column" v-for="card of cards[cat]" v-bind:key="cards[cat].indexOf(card) + cat">
+                    <a :href="card.endpoint.replace('<username>', query)" class="has-text-centered">
+                        <h2 class="subtitle">{{card['name']}}<div class="simple-animate" style="height: 19px;width: 149px; margin:auto"></div></h2>
+                        <figure class="image is-128x128 has-img-centered" >
                             <img :src="card.logo">
                         </figure>
+                        
+                  <div class="simple-animate" style="height: 130px;width: 149px; margin:auto;">
+                      <figure class="image is-128x128 has-img-centered" >
+                      </figure>
+                  </div>
+
                     </a>
                 </div>
-            </div>
+          </div>
+        </div>
       </div>
     </div>
 </template>
@@ -75,4 +83,29 @@ button {
 .column {
     padding: 30px;
 }
+.has-img-centered {
+  margin: auto ;
+}
+.has-pad-down {
+      padding-top: 23px;
+}
+.simple-animate {
+    background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
+    background-position: 1000px 100%;
+    animation: simpleshim 8s linear infinite;
+}
+
+@keyframes simpleshim {
+    0% {
+        background-position: -1000px 0;
+    }
+    50%{
+        transform: scale(1);
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+
 </style>
