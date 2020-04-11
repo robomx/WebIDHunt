@@ -58,7 +58,7 @@ export default {
           {
             "name": "Skype",
             "endpoint": "https://www.skype.com/<username>",
-            "logo": "https://logo.clearbit.com/skype.com"
+            "logo": "https://logo.clearbit.com/skyped.ru"
           },
            {
             "name": "Slack",
