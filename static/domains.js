@@ -20,6 +20,16 @@ export default {
                 "name": "TikTok",
                 "endpoint": "https://www.tiktok.com/<userName>",
                 "logo": "https://logo.clearbit.com/tiktok.com"
+            },
+          {
+                "name": "Snapchat",
+                "endpoint": "https://www.snapchat.com/<userName>",
+                "logo": "https://logo.clearbit.com/snapchat.com"
+            },
+          {
+                "name": "Linkedin",
+                "endpoint": "https://www.linkedin.com/<userName>",
+                "logo": "https://logo.clearbit.com/linkedin.com"
             }
         ],
         technology: [
@@ -27,6 +37,11 @@ export default {
                 "name": "Github",
                 "endpoint": "https://github.com/<userName>",
                 "logo": "https://logo.clearbit.com/github.com"
+            }, 
+            {
+                "name": "GitLab",
+                "endpoint": "https://about.gitlab.com/<userName>",
+                "logo": "https://logo.clearbit.com/gitlab.com"
             },
             {
                 "name": "GitKraken",
