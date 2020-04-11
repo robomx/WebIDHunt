@@ -32,7 +32,7 @@ export default {
                 "logo": "https://logo.clearbit.com/linkedin.com"
             },
           {
-                "name": "Linkedin",
+                "name": "Telegram",
                 "endpoint": "https://telegram.org/<userName>",
                 "logo": "https://logo.clearbit.com/telegram.org"
             },
