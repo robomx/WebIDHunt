@@ -8,10 +8,16 @@
       <div class="container">
         <div v-for="cat of category" v-bind:key="category.indexOf(cat) + 'cat'">
              <h1 class="title has-pad-down">{{cat.toUpperCase()}} <div class="bounce-shimmer bounce-animate" v-if="category.length == 0"></div></h1>
-         <div class="columns is-multiline">
+              <div class="columns is-multiline"> 
                  <div class="column" v-for="card of cards[cat]" v-bind:key="cards[cat].indexOf(card) + cat">
                     <a :href="card.endpoint.replace('<username>', query)" class="has-text-centered">
-                        <h2 class="subtitle">{{card['name']}}<div class="simple-animate" style="height: 19px;width: 149px; margin:auto"></div></h2>
+                        <h2 class="subtitle">
+                          {{card['name']}}
+                        </h2>
+                        {{cards[cat][cards[cat].indexOf(card)]['shimmer']}}
+                        <h2 class="subtitle" v-if="cards[cat][cards[cat].indexOf(card)]['shimmer']">
+                          <div class="simple-animate" style="height: 19px;width: 149px; margin:auto"></div>
+                        </h2>
                         <figure class="image is-128x128 has-img-centered" >
                             <img :src="card.logo">
                         </figure>
@@ -78,6 +84,7 @@ export default {
                 }
             }, (Err) => {
                 console.log(Err)
+                this.updateCard(card, cat, false, false)
             })
         },
         updateCard(card, category, shimmerEffect, available) {
