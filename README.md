@@ -1,4 +1,5 @@
 # WebIDHunt
+[![HitCount](http://hits.dwyl.com/RoboMx/WebIDHunt.svg)](http://hits.dwyl.com/RoboMx/WebIDHunt)
 
 Client based app to get information about username availability from different important websites. This tool can be used by startups, tech enthusiast, and people who want to block particular username on important domains.
 
