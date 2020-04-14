@@ -33,7 +33,7 @@ export default {
             },
           {
                 "name": "Telegram",
-                "endpoint": "https://telegram.org/<userName>",
+                "endpoint": "https://telegram.org/<username>",
                 "logo": "https://logo.clearbit.com/telegram.org"
             },
         ],

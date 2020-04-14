@@ -1,8 +1,8 @@
 <template>
     <div>
       <div class="searchbar">
-        <input :value="query" @input="inputChange()" type="text" id="fname" name="fname" />
-        <button>Check</button>
+        <input v-model="query" type="text" id="fname" name="fname" />
+        <button @click="inputChange()">Check</button>
       </div>
 
       <div class="container">
@@ -44,43 +44,36 @@ export default {
         query: '',
         cards: [],
         category: [],
-        showShimmer: true
+        showShimmer: true,
+        hapyproxy: 'http://localhost:5050/'
     }),
     created: function() {
-        this.query = this.$router.currentRoute.query['query'] || '';
-
         this.cards = list.domains
         this.category = Object.keys(list.domains)
-
-        this.searchUsername();
     },
     methods: {
         inputChange() {
             this.searchUsername()
-            alert(this.query)
         },
         searchUsername() {
+            this.cards = list.domains;
             this.category.forEach(cat => {
-                this.cards[cat].forEach(card => {
-                    card['shimmer'] = true
-                    card['available'] = false
-                    console.log(card['endpoint'])
-                    card['endpoint'] = card['endpoint'].replace('<username>', this.query)
-                    this.checkEndpoint(card, cat)
+                this.cards['social'].forEach(card => {
+                    this.cards['social'][this.cards['social'].indexOf(card)]['shimmer'] = true
+                    this.cards['social'][this.cards['social'].indexOf(card)]['available'] = false
+                    var url = this.cards['social'][this.cards['social'].indexOf(card)]['endpoint'].replace('<username>', this.query)
+                    this.checkEndpoint(this.cards['social'][this.cards['social'].indexOf(card)], cat, url)
                 })
             })
         },
-        checkEndpoint(card, cat) {
-            axios.get(card['endpoint'],{
-                headers: {
-                    "Access-Control-Allow-Origin": "http://localhost:3000",
-                    "Access-Control-Allow-Headers": "content-type",
-                    "Content-Type": "application/json",
-                }
-            }).then((Response) => {
-                // console.log(Response)
+        checkEndpoint(card, cat, url) {
+            console.log(url)
+
+            axios.get(this.hapyproxy + url).then((Response) => {
                 if (Response.status == 200) {
                     this.updateCard(card, cat, false, true)
+                } else {
+                    this.updateCard(card, cat, false, false)
                 }
             }, (Err) => {
                 console.log(Err)
@@ -91,7 +84,7 @@ export default {
             card['shimmer'] = shimmerEffect
             card['available'] = available
             // update list
-            this.cards[cat][this.cards[cat].indexOf(card)] = card
+            this.cards[category][this.cards[category].indexOf(card)] = card
         }
     }
 }
