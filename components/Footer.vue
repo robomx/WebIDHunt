@@ -1,7 +1,7 @@
 <template>
     <footer class="has-text-centered has-text-white">
         <p class="center-align">
-        Developed by RoboMx&trade; Team
+        A RoboMx&trade; creation
         </p>
     </footer>
 </template>

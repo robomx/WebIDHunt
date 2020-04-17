@@ -13,19 +13,19 @@
         <h1 class="title has-pad-down">{{cat.toUpperCase()}}</h1>
         <div class="columns is-multiline">
           <div
-            class="column"
+            class="column is-2"
             v-for="card of lists[cat]"
             v-bind:key="lists[cat].indexOf(card) + cat"
           >
             <a
+                target="_blank"
               :href="card.endpoint.replace('<username>', query)"
               v-bind:class="'has-text-centered no-event'"
             >
               <div v-if="lists[cat][lists[cat].indexOf(card)]['shimmer'] == 'hide'">
-                {{lists[cat][lists[cat].indexOf(card)]['available']}}
-                <h2 class="subtitle">{{card['name']}}</h2>
+                <h2 class="subtitle is-6">{{card['name']}}</h2>
 
-                <figure class="image is-128x128 has-img-centered">
+                <figure class="image is-64x64 has-img-centered">
                   <img :src="card.logo" />
                 </figure>
               </div>
@@ -59,13 +59,13 @@ export default {
   created: function() {
     this.cards = list.domains
     this.category = Object.keys(list.domains)
-    // this.category.forEach(cat => {
-    //   this.cards[cat].forEach(card => {
-    //     this.cards[cat][this.cards[cat].indexOf(card)]['shimmer'] = 'hide'
-    //     this.cards[cat][this.cards[cat].indexOf(card)]['available'] = 'non'
-    //   })
-    // })
-
+    this.category.forEach(cat => {
+      this.cards[cat].forEach(card => {
+        this.cards[cat][this.cards[cat].indexOf(card)].shimmer = 'hide'
+        this.cards[cat][this.cards[cat].indexOf(card)].available = 'none'
+      })
+    })
+    console.log(this.cards)
     this.lists = this.cards
   },
 
@@ -158,7 +158,7 @@ button {
   color: white;
 }
 .container {
-  padding: 10%;
+  padding: 2%;
 }
 
 .column {
