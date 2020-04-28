@@ -35,6 +35,11 @@ export default {
                 "shimmer": "hide",
                 "available": 'none'
             },
+            {
+                "name": "Telegram",
+                "endpoint": "https://telegram.org/<username>",
+                "logo": "https://logo.clearbit.com/telegram.org",
+            },
         ],
         technology: [{
                 "name": "Github",
