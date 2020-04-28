@@ -7,6 +7,11 @@
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+ font-family: 'Roboto', sans-serif;
+}
 footer {
   height: 74px;
   background-color: #0a173e;

@@ -29,23 +29,9 @@ export default {
                 "available": 'none'
             },
             {
-                "name": "Snapchat",
-                "endpoint": "https://www.snapchat.com/<username>",
-                "logo": "https://logo.clearbit.com/snapchat.com",
-                "shimmer": "hide",
-                "available": 'none'
-            },
-            {
                 "name": "Linkedin",
                 "endpoint": "https://www.linkedin.com/<username>",
                 "logo": "https://logo.clearbit.com/linkedin.com",
-                "shimmer": "hide",
-                "available": 'none'
-            },
-            {
-                "name": "Telegram",
-                "endpoint": "https://telegram.org/<username>",
-                "logo": "https://logo.clearbit.com/telegram.org",
                 "shimmer": "hide",
                 "available": 'none'
             },

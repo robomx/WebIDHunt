@@ -13,28 +13,27 @@
         <h1 class="title has-pad-down">{{cat.toUpperCase()}}</h1>
         <div class="columns is-multiline">
           <div
-            class="column"
+            class= "column is-2" 
             v-for="card of lists[cat]"
             v-bind:key="lists[cat].indexOf(card) + cat"
           >
             <a
-              :href="card.endpoint.replace('<username>', query)"
-              v-bind:class="'has-text-centered no-event'"
+              :href="card.endpoint.replace('<username>', query)" target="_blank"
+              class="has-text-centered no-event"
             >
-              <div v-if="lists[cat][lists[cat].indexOf(card)]['shimmer'] == 'hide'">
-                {{lists[cat][lists[cat].indexOf(card)]['available']}}
-                <h2 class="subtitle">{{card['name']}}</h2>
-
+              <div v-if="lists[cat][lists[cat].indexOf(card)]['shimmer'] == 'hide'" v-bind:class = "(lists[cat][lists[cat].indexOf(card)]['available'] == ''? 'blur': '')">
+               
+                <h2 class="subtitle" >{{card['name']}}</h2>
                 <figure class="image is-128x128 has-img-centered">
-                  <img :src="card.logo" />
+                  <img :src="card.logo"  class="img-resize"/>
                 </figure>
               </div>
 
               <div class="shimmer" v-else>
                 <h2 class="subtitle">
-                  <div class="simple-animate" style="height: 19px;width: 149px; margin:auto"></div>
+                  <div class="simple-animate" style="height: 19px;width: 99px; margin:auto"></div>
                 </h2>
-                <div class="simple-animate" style="height: 130px;width: 149px; margin:auto;"></div>
+                <div class="simple-animate" style="height: 101px;width: 101px; margin:auto;"></div>
               </div>
             </a>
           </div>
@@ -59,31 +58,28 @@ export default {
   created: function() {
     this.cards = list.domains
     this.category = Object.keys(list.domains)
-    // this.category.forEach(cat => {
-    //   this.cards[cat].forEach(card => {
-    //     this.cards[cat][this.cards[cat].indexOf(card)]['shimmer'] = 'hide'
-    //     this.cards[cat][this.cards[cat].indexOf(card)]['available'] = 'non'
-    //   })
-    // })
-
-    this.lists = this.cards
+    this.lists = this.cards   
   },
 
   methods: {
+ 
     enterTrigger: function(e) {
       if (e.keyCode === 13) {
         this.inputChange()
       }
     },
     prevent() {},
+
     inputChange() {
       this.searchUsername()
     },
     eventRemove() {
-      var e = document.getElementsByClassName('no-event')[0]
-      e.classList.remove('no-event')
+      var er = document.getElementsByClassName('no-event')[0];
+      er.classList.remove('no-event');
     },
+ 
     searchUsername() {
+      
       this.category.forEach(cat => {
         this.lists[cat].forEach(card => {
           this.lists[cat][this.lists[cat].indexOf(card)]['shimmer'] = 'show'
@@ -107,29 +103,38 @@ export default {
           } else {
             this.updateCard(card, cat, 'hide', 'none')
           }
-          this.eventRemove()
+       this.eventRemove();
         },
         Err => {
-          this.eventRemove()
           this.updateCard(card, cat, 'hide', 'none')
         }
       )
     },
     updateCard(card, category, shimmerEffect, available) {
+     
       card['shimmer'] = shimmerEffect
       card['available'] = available
       // update list
       this.lists[category][this.lists[category].indexOf(card)] = card
-    }
+     
+    },
   }
 }
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+ font-family: 'Roboto', sans-serif;
+}
+.blur {
+  filter: blur(2.5px);
+}
 .no-event {
   cursor: not-allowed;
   pointer-events: none;
-  opacity: 0.4;
+  filter: blur(2px);
 }
 .event {
   opacity: 1;
@@ -161,9 +166,6 @@ button {
   padding: 10%;
 }
 
-.column {
-  padding: 30px;
-}
 .has-img-centered {
   margin: auto;
 }
@@ -174,6 +176,11 @@ button {
   background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
   background-position: 1000px 100%;
   animation: simpleshim 8s linear infinite;
+}
+.img-resize {
+  height: 70px;
+  width: 70px;
+  margin: auto;
 }
 
 @keyframes simpleshim {
