@@ -7,7 +7,6 @@
         <button @click="inputChange()">Check</button>
       </form>
     </div>
-
     <div class="container">
       <div v-for="cat of category" v-bind:key="category.indexOf(cat) + 'cat'">
         <h1 class="title has-pad-down">{{cat.toUpperCase()}}</h1>
@@ -69,7 +68,6 @@ export default {
       }
     },
     prevent() {},
-
     inputChange() {
       this.searchUsername()
     },
@@ -79,7 +77,7 @@ export default {
     },
  
     searchUsername() {
-      
+
       this.category.forEach(cat => {
         this.lists[cat].forEach(card => {
           this.lists[cat][this.lists[cat].indexOf(card)]['shimmer'] = 'show'
@@ -111,12 +109,10 @@ export default {
       )
     },
     updateCard(card, category, shimmerEffect, available) {
-     
       card['shimmer'] = shimmerEffect
       card['available'] = available
       // update list
       this.lists[category][this.lists[category].indexOf(card)] = card
-     
     },
   }
 }
@@ -182,7 +178,6 @@ button {
   width: 70px;
   margin: auto;
 }
-
 @keyframes simpleshim {
   0% {
     background-position: -1000px 0;
