@@ -11,9 +11,9 @@
     <div class="container">
       <div v-for="cat of category" v-bind:key="category.indexOf(cat) + 'cat'">
         <h1 class="title has-pad-down">{{cat.toUpperCase()}}</h1>
-        <div class="columns is-multiline">
+        <div class="columns is-multiline mobile">
           <div
-            class= "column is-2" 
+            class= "column is-2 is-5-mobile" 
             v-for="card of lists[cat]"
             v-bind:key="lists[cat].indexOf(card) + cat"
           >
@@ -29,7 +29,7 @@
                 </figure>
               </div>
 
-              <div class="shimmer" v-else>
+              <div class="shimmer" v-else >
                 <h2 class="subtitle">
                   <div class="simple-animate" style="height: 19px;width: 99px; margin:auto"></div>
                 </h2>
@@ -192,6 +192,14 @@ button {
   }
   100% {
     background-position: 1000px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mobile {
+    flex-wrap: wrap !important;
+    display: flex !important;
+    justify-content: center !important;
   }
 }
 </style>
