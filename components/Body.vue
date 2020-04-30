@@ -20,9 +20,10 @@
               :href="card.endpoint.replace('<username>', query)" target="_blank"
               class="has-text-centered no-event"
             >
-              <div v-if="lists[cat][lists[cat].indexOf(card)]['shimmer'] == 'hide'" v-bind:class = "(lists[cat][lists[cat].indexOf(card)]['available'] == ''? 'blur': '')">
+              <div v-if="shimmer
+               == 'hide'" v-bind:class = "(lists[cat][lists[cat].indexOf(card)]['available'] == ''? 'blur': '')">
                
-                <h2 class="subtitle" >{{card['name']}}</h2>
+                <h2 class="subtitle has-text-centered" >{{card['name']}}</h2>
                 <figure class="image is-128x128 has-img-centered">
                   <img :src="card.logo"  class="img-resize"/>
                 </figure>
@@ -52,16 +53,23 @@ export default {
     cards: [],
     lists: [],
     category: [],
-    hapyproxy: 'https://hayproxy.herokuapp.com/'
+    shimmer: 'hide',
+    a: '',
+    hayproxy: 'https://hayproxy.herokuapp.com/'
   }),
   created: function() {
     this.cards = list.domains
     this.category = Object.keys(list.domains)
+    Object.keys(this.cards).forEach((c, i)=> {
+      this.cards[c].forEach((l, j) =>  {
+        this.cards[c][j]['shimmer'] = 'hide';
+        this.cards[c][j]['available'] = 'none';
+      })
+    })
+    console.log(this.cards)
     this.lists = this.cards   
   },
-
   methods: {
- 
     enterTrigger: function(e) {
       if (e.keyCode === 13) {
         this.inputChange()
@@ -73,14 +81,18 @@ export default {
     },
     eventRemove() {
       var er = document.getElementsByClassName('no-event')[0];
-      er.classList.remove('no-event');
+      if(er) {
+        er.classList.remove('no-event');
+      }
     },
  
     searchUsername() {
-
+      this.shimmer
+      = 'show'
+      this.lists = this.cards   
       this.category.forEach(cat => {
         this.lists[cat].forEach(card => {
-          this.lists[cat][this.lists[cat].indexOf(card)]['shimmer'] = 'show'
+         
           this.lists[cat][this.lists[cat].indexOf(card)]['available'] = ''
           var url = this.lists[cat][this.lists[cat].indexOf(card)][
             'endpoint'
@@ -94,7 +106,7 @@ export default {
       })
     },
     checkEndpoint(card, cat, url) {
-      axios.get(this.hapyproxy + url).then(
+      axios.get(this.hayproxy + url).then(
         Response => {
           if (Response.status == 200) {
             this.updateCard(card, cat, 'hide', '')
@@ -104,12 +116,14 @@ export default {
        this.eventRemove();
         },
         Err => {
+          console.log(Err)
           this.updateCard(card, cat, 'hide', 'none')
         }
       )
     },
     updateCard(card, category, shimmerEffect, available) {
-      card['shimmer'] = shimmerEffect
+      this.shimmer
+       = shimmerEffect
       card['available'] = available
       // update list
       this.lists[category][this.lists[category].indexOf(card)] = card
@@ -161,12 +175,8 @@ button {
 .container {
   padding: 10%;
 }
-
 .has-img-centered {
   margin: auto;
-}
-.has-pad-down {
-  padding-top: 23px;
 }
 .simple-animate {
   background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
@@ -196,5 +206,9 @@ button {
     display: flex !important;
     justify-content: center !important;
   }
+}
+
+.subtitle {
+  white-space: nowrap;
 }
 </style>
