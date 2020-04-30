@@ -1,7 +1,7 @@
 {
   "name": "WebIDHunt",
   "version": "1.0.0",
-  "description": "My prime Nuxt.js project",
+  "description": "Hunt your favourite username quickly.",
   "author": "RoboMx Team",
   "private": true,
   "scripts": {
@@ -15,7 +15,9 @@
     "@nuxtjs/bulma": "^1.2.1",
     "@nuxtjs/proxy": "^1.3.3",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "nuxt": "^2.0.0"
+    "@nuxtjs/robots": "^2.4.2",
+    "nuxt": "^2.0.0",
+    "nuxt-seo": "^1.2.2"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",

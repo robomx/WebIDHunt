@@ -4,11 +4,11 @@ export default {
      ** Headers of the page
      */
     head: {
-        title: process.env.npm_package_name || '',
+        title: 'WebIDHunt | RoboMx Team',
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-            { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+            { hid: 'description', name: 'description', content: 'Hunt your favourite username quickly. Use the search box to input your username and cross check availables ones with just one click. This project demonstrates the work of client first apps.' }
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
@@ -39,7 +39,9 @@ export default {
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
         '@nuxtjs/pwa',
-        '@nuxtjs/proxy'
+        '@nuxtjs/proxy',
+        'nuxt-seo',
+        '@nuxtjs/robots',
     ],
     /*
      ** Axios module configuration
@@ -48,6 +50,22 @@ export default {
     axios: {
         proxy: true
     },
+    robots: {
+        Sitemap: 'https://webidhunt.robomx.tech/sitemap.xml'
+    },
+    sitemap: {
+        routes() {
+            [
+                'https://webidhunt.robomx.tech/'
+            ]
+        },
+        path: '/sitemap.xml',
+        hostname: 'https://webidhunt.robomx.tech/',
+        defaults: {
+          changefreq: 'weekly',
+          lastmod: new Date()
+        }
+      },
     /*
      ** Build configuration
      */

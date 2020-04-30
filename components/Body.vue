@@ -69,8 +69,6 @@ export default {
         this.cards[c][j]['available'] = 'none';
       })
     })
-    console.log(this.cards)
-
     this.lists = this.cards   
   },
   methods: {
@@ -94,7 +92,12 @@ export default {
     searchUsername() {
       this.shimmer
       = 'show'
-      this.lists = this.cards   
+      Object.keys(this.lists).forEach((c, i)=> {
+        this.lists[c].forEach((l, j) =>  {
+          this.lists[c][j]['shimmer'] = 'hide';
+          this.lists[c][j]['available'] = 'none';
+        })
+      })
       this.category.forEach(cat => {
         this.lists[cat].forEach(card => {
          
