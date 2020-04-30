@@ -22,11 +22,15 @@ export default {
                 "available": 'none'
             },
             {
-                "name": "TikTok",
-                "endpoint": "https://www.tiktok.com/<username>",
-                "logo": "https://logo.clearbit.com/tiktok.com",
-                "shimmer": "hide",
-                "available": 'none'
+                "name": "Medium",
+                "endpoint": "https://www.medium.com/<username>",
+                "logo": "https://logo.clearbit.com/medium.com",
+            },
+            {
+                "name": "Quora",
+                "endpoint": "https://www.quora.com/profile/<username>",
+                "logo": "https://logo.clearbit.com/quora.com",
+
             },
             {
                 "name": "Linkedin",
@@ -36,10 +40,16 @@ export default {
                 "available": 'none'
             },
             {
-                "name": "Telegram",
-                "endpoint": "https://telegram.org/<username>",
-                "logo": "https://logo.clearbit.com/telegram.org",
+                "name": "Tumblr",
+                "endpoint": "https://<username>.tumblr.com/",
+                "logo": "https://logo.clearbit.com/tumblr.com",
             },
+            {
+                "name": "TikTok",
+                "endpoint": "https://www.tiktok.com/<username>",
+                "logo": "https://logo.clearbit.com/tiktok.com",
+            },
+
         ],
         technology: [{
                 "name": "Github",
@@ -49,19 +59,20 @@ export default {
                 "available": 'none'
             },
             {
-                "name": "GitLab",
-                "endpoint": "https://about.gitlab.com/<username>",
-                "logo": "https://logo.clearbit.com/gitlab.com",
-                "shimmer": "hide",
-                "available": 'none'
+                "name": "Bitbucket",
+                "endpoint": "https://bitbucket.com/<username>",
+                "logo": "https://logo.clearbit.com/bitbucket.com",
             },
             {
-                "name": "GitKraken",
-                "endpoint": "https://www.gitkraken.com/<username>",
-                "logo": "https://logo.clearbit.com/gitkraken.com",
-                "shimmer": "hide",
-                "available": 'none'
-            }
+                "name": "Netlify",
+                "endpoint": "https://<username>.netlify.com",
+                "logo": "https://logo.clearbit.com/netlify.com",
+            },
+            {
+                "name": "NPM",
+                "endpoint": "https://www.npmjs.com/~<username>",
+                "logo": "https://logo.clearbit.com/npmjs.com",
+            },
         ],
         communication: [{
                 "name": "Skype",
@@ -77,7 +88,6 @@ export default {
                 "shimmer": "hide",
                 "available": 'none'
             },
-
             {
                 "name": "FlowDock",
                 "endpoint": "https://www.flowdock.com/<username>",
