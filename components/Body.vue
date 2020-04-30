@@ -24,12 +24,14 @@
                == 'hide'" v-bind:class = "(lists[cat][lists[cat].indexOf(card)]['available'] == ''? 'blur': '')">
                
                 <h2 class="subtitle has-text-centered" >{{card['name']}}</h2>
+
                 <figure class="image is-128x128 has-img-centered">
                   <img :src="card.logo"  class="img-resize"/>
                 </figure>
               </div>
 
               <div class="shimmer" v-else >
+
                 <h2 class="subtitle">
                   <div class="simple-animate" style="height: 19px;width: 99px; margin:auto"></div>
                 </h2>
@@ -56,6 +58,7 @@ export default {
     shimmer: 'hide',
     a: '',
     hayproxy: 'https://hayproxy.herokuapp.com/'
+
   }),
   created: function() {
     this.cards = list.domains
@@ -125,6 +128,7 @@ export default {
     updateCard(card, category, shimmerEffect, available) {
       this.shimmer
        = shimmerEffect
+
       card['available'] = available
       // update list
       this.lists[category][this.lists[category].indexOf(card)] = card
@@ -211,5 +215,6 @@ button {
 
 .subtitle {
   white-space: nowrap;
+
 }
 </style>

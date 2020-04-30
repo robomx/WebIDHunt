@@ -30,6 +30,7 @@ export default {
                 "name": "Quora",
                 "endpoint": "https://www.quora.com/profile/<username>",
                 "logo": "https://logo.clearbit.com/quora.com",
+
             },
             {
                 "name": "Linkedin",
@@ -48,6 +49,7 @@ export default {
                 "endpoint": "https://www.tiktok.com/<username>",
                 "logo": "https://logo.clearbit.com/tiktok.com",
             },
+
         ],
         technology: [{
                 "name": "Github",
