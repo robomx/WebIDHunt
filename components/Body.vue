@@ -67,9 +67,11 @@ export default {
       })
     })
     console.log(this.cards)
+
     this.lists = this.cards   
   },
   methods: {
+ 
     enterTrigger: function(e) {
       if (e.keyCode === 13) {
         this.inputChange()
@@ -116,7 +118,6 @@ export default {
        this.eventRemove();
         },
         Err => {
-          console.log(Err)
           this.updateCard(card, cat, 'hide', 'none')
         }
       )
