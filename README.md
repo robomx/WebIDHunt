@@ -42,3 +42,8 @@ Client based app to get information about username availability from different i
         ]
         ```
     * Send a pull request.
+
+
+## Generate resources
+
+    yarn resources android ios

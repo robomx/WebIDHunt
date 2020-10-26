@@ -73,6 +73,7 @@ export default {
                 "name": "Slack",
                 "endpoint": "https://<username>.slack.com/",
                 "logo": "https://logo.clearbit.com/slack.com",
+            },
             {
                 "name": "FlowDock",
                 "endpoint": "https://www.flowdock.com/<username>",

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">WebIDHunt</string>
+    <string name="title_activity_main">WebIDHunt</string>
+    <string name="package_name">com.robomx.webidhunt</string>
+    <string name="custom_url_scheme">com.robomx.webidhunt</string>
+</resources>
