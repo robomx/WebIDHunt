@@ -25,7 +25,7 @@ export default {
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: [],
+    plugins: [{src: "@/plugins/pwa-custom.js"}],
     /*
      ** Nuxt.js dev-modules
      */
@@ -34,11 +34,8 @@ export default {
      ** Nuxt.js modules
      */
     modules: [
-        // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
         '@nuxtjs/bulma',
-        // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
-        '@nuxtjs/pwa',
         '@nuxtjs/proxy',
         'nuxt-seo',
         '@nuxtjs/robots',
