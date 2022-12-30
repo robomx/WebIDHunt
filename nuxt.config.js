@@ -12,7 +12,10 @@ export default {
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
-        ]
+        ],
+        script: [
+            {        src: 'https://analytics.robomx.com/umami.js', async: true, defer: true, 'data-website-id': '3a9a6336-0ce2-4b71-b6c5-163aac3aeeeb'       },    
+        ],
     },
     /*
      ** Customize the progress-bar color
