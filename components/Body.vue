@@ -57,7 +57,7 @@ export default {
     category: [],
     shimmer: 'hide',
     a: '',
-    hayproxy: 'https://hayproxy.herokuapp.com/'
+    hayproxy: 'https://hayproxy.robomx.tech/'
 
   }),
   created: function() {
