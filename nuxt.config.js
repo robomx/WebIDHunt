@@ -1,5 +1,6 @@
 export default {
-    ssr: 'false',
+    ssr: false,
+    target: 'static',
     /*
      ** Headers of the page
      */
@@ -49,6 +50,9 @@ export default {
      */
     axios: {
         proxy: true
+    },
+    env: {
+        REMOTE_URL: process.env.REMOTE_URL || 'https://hayproxy.robomx.tech/'
     },
     robots: {
         Sitemap: 'https://webidhunt.robomx.tech/sitemap.xml'

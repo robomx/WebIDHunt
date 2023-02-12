@@ -21,7 +21,7 @@
               class="has-text-centered no-event"
             >
               <div v-if="shimmer
-               == 'hide'" v-bind:class = "(lists[cat][lists[cat].indexOf(card)]['available'] == ''? 'blur': '')">
+               === 'hide'" v-bind:class = "(lists[cat][lists[cat].indexOf(card)]['available'] === ''? 'blur': '')">
                
                 <h2 class="subtitle has-text-centered" >{{card['name']}}</h2>
 
@@ -57,10 +57,10 @@ export default {
     category: [],
     shimmer: 'hide',
     a: '',
-    hayproxy: 'https://hayproxy.robomx.tech/'
+    hayproxy: process.env.REMOTE_URL
 
   }),
-  created: function() {
+  created() {
     this.cards = list.domains
     this.category = Object.keys(list.domains)
     Object.keys(this.cards).forEach((c, i)=> {
@@ -116,8 +116,10 @@ export default {
     checkEndpoint(card, cat, url) {
       axios.get(this.hayproxy + url).then(
         Response => {
-          if (Response.status == 200) {
-            this.updateCard(card, cat, 'hide', '')
+          if (url.includes('quora'))
+          console.log(Response)
+          if (Response.status === 200) {
+            this.updateCard(card, cat, 'hide', false)
           } else {
             this.updateCard(card, cat, 'hide', 'none')
           }
